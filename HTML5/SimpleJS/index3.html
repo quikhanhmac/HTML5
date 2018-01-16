@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="div1">
+        <img src="images/image1.png" style="display:block" />
+        <img src="images/image2.png" style="display:none" />
+        <img src="images/image3.png" style="display:none" />
+    </div>
+    <script>
+        var index = 1;
+        //var lesImages = document.images;
+        //var lesImages = document.getElementById("div1").getElementsByTagName("img");
+        var lesImages = document.querySelectorAll("#div1 img");
+
+        function alterne() {
+            for (i = 0; i < lesImages.length; i++) {
+                lesImages[i].style.display = "none";
+            }
+            lesImages[index - 1].style.display = "block";
+            index++;
+            if (index == 4) clearInterval(timer);
+        }
+        var timer = setInterval(alterne, 300);
+    </script>
+</body>
+</html>

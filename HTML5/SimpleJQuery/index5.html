@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <h1>Dynamic Html</h1>
+    <table id="t1" border="1" cellpadding="3" cellspacing="0">
+        <tr style="background-color:silver"><td>Nom</td><td>Age</td></tr>
+        <!--<tr><td>André</td><td>20</td></tr>
+        <tr><td>Jo</td><td>40</td></tr>-->
+    </table>
+    <p id="par1">...</p>
+    <script>
+        var p = [
+            { "Nom": "André", "Age": 20 },
+            { "Nom": "Jo", "Age": 40 }
+        ];
+
+        for (i = 0; i < p.length; i++) {
+            $("#t1").append(
+                "<tr><td>" + p[i].Nom +
+                "</td><td onmouseover='function () { var par = document.getElementById(''par1''); par.innerHTML = this.innerHTML;}'>" + p[i].Age + "</td></tr>");
+            }
+
+    </script>
+</body>
+</html>
