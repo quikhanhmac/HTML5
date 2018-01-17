@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="Scripts/jquery-3.2.1.min.js"></script>
     <title></title>
 </head>
 <body>
@@ -14,20 +13,28 @@
     </table>
     <p id="par1">...</p>
     <script>
-        //javaScript
         var p = [
             { "Nom": "André", "Age": 20 },
             { "Nom": "Jo", "Age": 40 }
         ];
 
+        var text = "";
+        var t1 = document.getElementById("t1");
+        var tr, td1, td2;
         for (i = 0; i < p.length; i++) {
-            $("#t1").append(
-                "<tr><td>" + p[i].Nom +
-                "</td><td >" + p[i].Age + "</td></tr>");//JQuery
+            tr = t1.insertRow(1);
+            td1 = tr.insertCell(0);
+            td1.addEventListener("mouseover", function () {
+                var par = document.getElementById("par1");
+                par.innerHTML = this.innerHTML;
+            });
+
+            td2 = tr.insertCell(1);
+            td2.style.textAlign = "center";
+            td1.innerHTML = p[i].Nom;
+            td2.innerHTML = p[i].Age;
         }
-        $(".td1").mouseover(function () {
-            $("#par1").html(this.innerHTML);
-        });//JQuery
+
     </script>
 </body>
 </html>

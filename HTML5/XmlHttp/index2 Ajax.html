@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <input type="text" id="saisie" value="auto" />
+    <button id="btGet">Get avec Ajax</button>
+    <button id="btPost">Post avec Ajax</button>
+    <p id="message"></p>
+
+    <script>
+        $("#btnGet").click(
+            function () {
+                var param = $("#saisie")[0].value;
+                $.ajax({
+                    type: "GET",
+                    ulr: "http://localhost:62564/page.aspx?categorie=" + param,
+                    success: function (data, status) {
+                        if (status == "success")
+                            document.getElementById("message").innerHTML = data;
+                    },
+                    error: function (xhr, status, error) {
+                        alert(status);
+                    }
+
+                });
+            });
+        $("#btnPost").click(
+            function () {
+                var param = document.getElementById("saisie").value;
+                $.ajax({
+                    type: "POST",
+                    ulr: "http://localhost:62564/page.aspx?categorie=",
+                    data: { cat: param },
+                    timeout: 5000,
+                    datatype: 'application/json',
+                    contentType: 'appication/x-www-form-urlencodes',
+                    success: function (data, status) {
+                        if (status == "success")
+                            document.getElementById("message").innerHTML = data;
+                    },
+                    error: function (xhr, status, error) {
+                        alert(status);
+                    }
+
+                });
+            });
+    </script>
+</body>
+</html>

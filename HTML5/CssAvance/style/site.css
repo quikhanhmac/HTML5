@@ -1,0 +1,76 @@
+﻿body {
+    background: linear-gradient(to right,green,white)
+}
+
+.tresgrand {
+    width: 200px;
+    height: 200px;
+}
+
+.petit {
+    width: 20px;
+    height: 20px;
+}
+
+.moyen {
+    width: 40px;
+    height: 40px;
+}
+
+.grand {
+    width: 100px;
+    height: 100px;
+}
+
+.cadrerouge {
+    border: 10px,solid red;
+}
+
+.avecimage {
+    background: yellow;
+    background-image: url('../image/rose.png');
+    background-repeat: repeat-x;
+}
+
+.bleu {
+    background-color: cyan;
+}
+
+.blanc {
+    background-color: white;
+}
+
+.orange {
+    background-color: darkorange;
+}
+
+.fixe {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+}
+
+.relatif {
+    position: relative;
+    top: 50px;
+    left: 80px;
+}
+
+.absolu1 {
+    position: absolute;
+    top: 70px;
+    left: 85px;
+}
+
+.absolu2 {
+    position: absolute;
+    top:50px;
+    left: 200px;
+}
+
+.encercle {
+    border-radius: 20%;
+}
+.transparent{
+    opacity:0.5;
+}
