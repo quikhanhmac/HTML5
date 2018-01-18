@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button onclick="go()">Go</button><p id="message"></p>
+    <script>
+
+        var requete = new XMLHttpRequest();
+        var url = "http://localhost:61892/data.aspx";
+        function go() {
+            requete.open("POST", url);
+            requete.send();
+
+            requete.onreadystatechange = function () {
+                if (requete.status == 200 && requete.readystate == 4) {
+                    document.getElementById("message").innerHTML = requete.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

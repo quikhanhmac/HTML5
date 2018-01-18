@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>XMLHttpRequest avec Javascript</h1>
+    <a href="page2.html">Page 2</a>
+    <input type="text" id="genre" value="mammifère">
+    <button onclick="GoGet();">Get</button>
+    <button onclick="GoPost();">Post</button>
+    <div id="div1"></div>
+    <script>
+        function GoGet() {
+            var cat = document.getElementById("genre").value;
+
+            var requete = new XMLHttpRequest();
+            requete.open("GET", "http://localhost:61892/page.aspx?categorie=" + cat); //+ &souscat=" + souscat);
+            requete.send();
+
+            requete.onreadystatechange = function () {
+                if (requete.status == 200 && requete.readyState == 4) {
+                    var div = document.getElementById("div1");
+                    div.innerHTML = requete.responseText;
+                }
+            };
+        }
+        function GoPost() {
+            var input = document.getElementById("genre").value;
+            var tab = input.split('/');
+            var cat = tab[0];
+            var souscat = tab[1];
+            var requete = new XMLHttpRequest();
+            requete.open("POST", "http://localhost:61892/page.aspx?categorie="+cat);
+            var data = new FormData();
+            data.append('souscat', souscat);
+            requete.send(data);
+
+            requete.onreadystatechange = function () {
+                if (requete.status == 200 && requete.readyState == 4) {
+                    var div = document.getElementById("div1");
+                    div.innerHTML = requete.responseText;
+                }
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <input type="text" id="saisie" value="auto" />
+    <button id="btGet">Get avec JQuery</button>
+    <button id="btPost">Post avec JQuery</button>
+    <p id="message"></p>
+
+    <script>
+        $("#btnGet").click(
+            function goGet() {
+                var param = $("#saisie")[0].value;
+                $.get(
+                    "http://localhost:61892/page.aspx?categorie=" + param,
+                    function (data, status) {
+                        if (status == "success")
+                            document.getElementById("message").innerHTML = data;
+                    });
+            });
+        $("#btnPost").click(
+            function goPost() {
+                var param = document.getElementById("saisie").value;
+                $.post(
+                    "http://localhost:61892/page.aspx?categorie=", { cat: param },
+                    function (data, status) {
+                        if (status == "success")
+                            document.getElementById("message").innerHTML = data;
+                    });
+            });
+    </script>
+</body>
+</html>

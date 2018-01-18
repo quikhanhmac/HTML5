@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    //bouton "parcourir" apparait grace a  <input type="file"
+    <input type="file" id="fichier" onchange="OnLoadFile();" />
+    <textarea id="ZoneText" rows="10" cols="40"></textarea>
+    <script>
+        function OnLoadFile() {
+            var balisefichier = document.getElementById("fichier");
+            if (balisefichier.files.length == 1 && balisefichier.files[0].type.match(/text.*/)) {
+                var reader = new FileReader();
+                reader.onload = function (contenu) {
+                    var zoneText = document.getElementById("ZoneText");
+                    zoneText.value = contenu.target.result;
+                };
+                reader.onerror = function (result) {
+                    alert('lecture du fichier impossible');
+                }
+                reader.readAsText(balisefichier.files[0], "UTF-8");
+            }
+            else
+                alert("Choississez un fichier text")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="div1">Session Storage</div>
+    <div id="div2">Local Storage</div>
+    <button onclick="majSessionStorage();">Session Storage</button>
+    <button onclick="majLocalStorage();">Local Storage</button>
+    <button onclick="localStorage['fleur'] = 'Pervenche';">Modifier Local Storage</button>
+
+    <script>
+        function majSessionStorage() {
+            document.getElementById("div1").innerHTML = sessionStorage["animal"];
+
+        }
+        function majLocalStorage() {
+            document.getElementById("div2").innerHTML = localStorage["fleur"];
+
+        }
+        window.addEventListener('storage', function (e) {
+            alert('la clé' + e.key + 'a été modifiée dans' + e.storageArea);
+        });
+
+    </script>
+</body>
+</html>
