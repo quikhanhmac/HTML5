@@ -5,13 +5,13 @@
     <title></title>
 </head>
 <body>
-    //bouton "parcourir" apparait grace a  <input type="file"
-    <input type="file" id="fichier" onchange="OnLoadFile();" />
+    <input type="file" multiple="multiple" id="fichier" onchange="OnLoadFile();" />
     <textarea id="ZoneText" rows="10" cols="40"></textarea>
     <script>
         function OnLoadFile() {
             var balisefichier = document.getElementById("fichier");
-            if (balisefichier.files.length == 1 && balisefichier.files[0].type.match(/text.*/)) {
+            if (balisefichier.files.length == 1 &&
+                balisefichier.files[0].type.match(/text.*/)) {
                 var reader = new FileReader();
                 reader.onload = function (contenu) {
                     var zoneText = document.getElementById("ZoneText");
@@ -23,7 +23,7 @@
                 reader.readAsText(balisefichier.files[0], "UTF-8");
             }
             else
-                alert("Choississez un fichier text")
+                alert("Choisissez un seul fichier texte");
         }
     </script>
 </body>

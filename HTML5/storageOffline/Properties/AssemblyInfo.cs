@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("storageOffline")]
+[assembly: AssemblyTitle("StorageOffline")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("storageOffline")]
+[assembly: AssemblyProduct("StorageOffline")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("c2f85f02-4eea-43fd-9747-ab8f1857927f")]
+[assembly: Guid("49b04843-2c43-40a4-88bf-806548793b23")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

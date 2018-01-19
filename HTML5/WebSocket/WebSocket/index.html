@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        if (window.WebSocket) alert('WebSocket ok'); else alert('Fonctionnalité WebSocket non impémenté sur ce navigateur!');
+        var socket = new WebSocket("ws://localhost:57001/live/socket.ashx");
+    </script>
+</body>
+</html>

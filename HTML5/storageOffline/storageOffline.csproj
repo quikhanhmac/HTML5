@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C2F85F02-4EEA-43FD-9747-AB8F1857927F}</ProjectGuid>
+    <ProjectGuid>{49B04843-2C43-40A4-88BF-806548793B23}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>storageOffline</RootNamespace>
-    <AssemblyName>storageOffline</AssemblyName>
+    <RootNamespace>StorageOffline</RootNamespace>
+    <AssemblyName>StorageOffline</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -75,13 +75,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="storage.html" />
+    <Content Include="Exo2.html" />
+    <Content Include="Exo1.html" />
+    <Content Include="images\rouge.png" />
+    <Content Include="images\vert.png" />
+    <Content Include="offline.html" />
     <Content Include="storage2.html" />
+    <Content Include="storage.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -95,9 +101,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49520</DevelopmentServerPort>
+          <DevelopmentServerPort>53734</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49520/</IISUrl>
+          <IISUrl>http://localhost:53734/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -14,16 +14,13 @@
     <script>
         function majSessionStorage() {
             document.getElementById("div1").innerHTML = sessionStorage["animal"];
-
         }
         function majLocalStorage() {
             document.getElementById("div2").innerHTML = localStorage["fleur"];
-
         }
         window.addEventListener('storage', function (e) {
-            alert('la clé' + e.key + 'a été modifiée dans' + e.storageArea);
+            alert('la clé ' + e.key + ' a été modifié dans ' + e.storageArea);
         });
-
     </script>
 </body>
 </html>

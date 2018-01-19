@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exo 1</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+
+        .petit {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="div1" class="petit" onclick="divClic('div1')"></div>
+        <div id="div2" class="petit" onclick="divClic('div2')"></div>
+        <br />
+        <div id="div3" class="petit" onclick="divClic('div3')"></div>
+        <div id="div4" class="petit" onclick="divClic('div4')"></div>
+    </div>
+    <br />
+    <button onclick="localStorage.removeItem('div');">Reset storage</button>
+    <script>
+
+        function divClic(tag_Id) {
+
+            // Traitement du clic
+            if (tag_Id != "") {
+                var couleurChoisi = "white";
+                var couleurActuelle = document.getElementById(tag_Id).style.backgroundColor;
+                switch (tag_Id) {
+                    case "div1": couleurChoisi = "blue"; break;
+                    case "div2": couleurChoisi = "green"; break;
+                    case "div3": couleurChoisi = "red"; break;
+                    case "div4": couleurChoisi = "yellow"; break;
+                    default: couleurChoisi = "white"; break;
+                }
+                if (couleurActuelle == "white")
+                    document.getElementById(tag_Id).style.backgroundColor = couleurChoisi;
+                else
+                    document.getElementById(tag_Id).style.backgroundColor = "white";
+                localStorage["div"] =
+                    [
+                        document.getElementById("div1").style.backgroundColor == "" ? "white" : document.getElementById("div1").style.backgroundColor,
+                        document.getElementById("div2").style.backgroundColor == "" ? "white" : document.getElementById("div2").style.backgroundColor,
+                        document.getElementById("div3").style.backgroundColor == "" ? "white" : document.getElementById("div3").style.backgroundColor,
+                        document.getElementById("div4").style.backgroundColor == "" ? "white" : document.getElementById("div4").style.backgroundColor,
+                    ];
+
+            }
+            // Traitement du localStorage
+            if (localStorage["div"] == undefined) {
+                localStorage["div"] = ["white", "white", "white", "white"];
+            }
+
+            document.getElementById("div1").style.backgroundColor = localStorage["div"].split(',')[0];
+            document.getElementById("div2").style.backgroundColor = localStorage["div"].split(',')[1];
+            document.getElementById("div3").style.backgroundColor = localStorage["div"].split(',')[2];
+            document.getElementById("div4").style.backgroundColor = localStorage["div"].split(',')[3];
+        }
+        divClic("");
+    </script>
+</body>
+</html>
