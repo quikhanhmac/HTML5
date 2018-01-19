@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Compteur 1 : <div id="result1" style="font-size:24px;"></div></p>
+    <p>Compteur 2 : <div id="result2" style="font-size:24px;"></div></p>
+    <button onclick="go();" id="btnGo">Go</button>
+    <button onclick="stop(0);">Stop Worker 1</button>
+    <button onclick="stop(1);">Stop Worker 2</button>
+    <button onclick="EnPause();">Pause</button>
+    <input type="checkbox" />
+    <script>
+        var w = [];
+        var output1 = document.getElementById("result1");
+        var output2 = document.getElementById("result2");
+        function go() {
+            if (typeof (Worker) === 'undefined') return;
+            w.push(new Worker('scripts/monWorker.js'));
+            w.push(new Worker('scripts/monWorker.js'));
+
+            w[0].postMessage({
+                'command': 'init',
+                'valeurs': {
+                    'duree': 250,
+                    'pas': 1
+                }
+            });
+            w[1].postMessage({
+                'command': 'init',
+                'valeurs': {
+                    'duree': 100,
+                    'pas': 1
+                }
+            });
+            w[0].onmessage = function (eventData) {
+                output1.innerHTML = eventData.data;
+            }
+            w[1].onmessage = function (eventData) {
+                output2.innerHTML = eventData.data;
+            }
+            document.getElementById("btnGo").disabled = true;
+        }
+        function stop(id) {
+            w[id].terminate();
+        }
+        function EnPause() {
+            w[0].postMessage({
+                'command': 'pause'
+            });
+            w[1].postMessage({
+                'command': 'pause'
+            });
+        }
+    </script>
+</body>
+</html>

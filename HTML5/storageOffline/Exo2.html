@@ -33,17 +33,17 @@
 
             // Traitement du clic
             if (tag_Id != "") {
-                var couleurChoisi = "white";
+                var couleurChoisie = "white";
                 var couleurActuelle = document.getElementById(tag_Id).style.backgroundColor;
                 switch (tag_Id) {
-                    case "div1": couleurChoisi = "blue"; break;
-                    case "div2": couleurChoisi = "green"; break;
-                    case "div3": couleurChoisi = "red"; break;
-                    case "div4": couleurChoisi = "yellow"; break;
-                    default: couleurChoisi = "white"; break;
+                    case "div1": couleurChoisie = "blue"; break;
+                    case "div2": couleurChoisie = "green"; break;
+                    case "div3": couleurChoisie = "red"; break;
+                    case "div4": couleurChoisie = "yellow"; break;
+                    default: couleurChoisie = "white"; break;
                 }
                 if (couleurActuelle == "white")
-                    document.getElementById(tag_Id).style.backgroundColor = couleurChoisi;
+                    document.getElementById(tag_Id).style.backgroundColor = couleurChoisie;
                 else
                     document.getElementById(tag_Id).style.backgroundColor = "white";
                 localStorage["div"] =
@@ -53,7 +53,6 @@
                         document.getElementById("div3").style.backgroundColor == "" ? "white" : document.getElementById("div3").style.backgroundColor,
                         document.getElementById("div4").style.backgroundColor == "" ? "white" : document.getElementById("div4").style.backgroundColor,
                     ];
-
             }
             // Traitement du localStorage
             if (localStorage["div"] == undefined) {
